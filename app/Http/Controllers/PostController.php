@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class PostController extends Controller
 {
@@ -18,6 +20,21 @@ class PostController extends Controller
               return view('home')->with('posts', $posts);
           else
               return view('home')->with('errors', 'Nie znaleziono żadnych ostrzeżeń lub wystąpił nieoczekiwany błąd');
+      }
+
+      public function search()
+      {
+          $title = Input::get('title');
+          $singleWords = explode(' ', $title);
+          $query = Post::query();
+
+          foreach($singleWords as $word)
+          {
+              $query->orWhere('title', 'like', '%'. $word .'%');
+          }
+
+          $posts = $query->take(5)->get();
+          return ['posts' => $posts];
       }
 
       public function store(Request $request)

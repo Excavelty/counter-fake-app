@@ -20,7 +20,7 @@
         <form @submit="runSubmit" method="post">
         <div class="form-group">
             <label for="title">Tytuł</label>
-            <input id="title" name="title" v-model="title" class="form-control" type="text"/>
+            <input id="title" name="title" @keyup.native="getSimiliarTitles => e" v-model="title" class="form-control" type="text"/>
           </div>
 
           <div class="form-group">
@@ -36,7 +36,14 @@
             </select>
           </div>
 
-          <input type="submit" class="btn btn-primary" value="Add">
+          <input type="submit" class="btn btn-primary" value="Dodaj">
+
+          <div>
+          Sprawdź czy nie istnieją już podobne tematy:
+          <ul v-for="similiar in similiarList">
+              <li><a :href="'/show-post/' + similiar.id" target="_blank">{{similiar.title}}</a></li>
+          </ul>
+          </div>
         </form>
     </div>
     </div>
@@ -51,7 +58,8 @@
             type: '',
             success: null,
             errorsList: null,
-            error: null
+            error: null,
+            similiarList: [],
         };
       },
 
@@ -70,11 +78,6 @@
             this.error = response.data.error).catch(error => this.errorsList = error.response.data.errors);
         },
 
-        closeMessage(e)
-        {
-            document.querySelector(".closeButton").parentNode.remove();
-        },
-
         changeValue(e) {
             let handle = document.querySelector(".collapseButton");
             if(handle.textContent === 'Dodaj ostrzeżenie')
@@ -84,13 +87,15 @@
         },
       },
 
-      updated: function()
-      {
-          axios.get('/search-posts', props{
-            title: this.title
-          })
-      },
+      mounted: function() {
+          const titleHandle = document.getElementById("title");
+          titleHandle.addEventListener('keyup', () => axios.get('/search-posts', {
+              params: {
+                  title: this.title
+              }
+          }).then(response => this.similiarList = response.data.posts));
     }
+  }
 </script>
 <style>
 .fade-enter-active, .fade-leave-active {

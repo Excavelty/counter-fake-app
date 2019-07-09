@@ -21,4 +21,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::post('/add-post', 'PostController@store');
+Route::get('/search-posts', 'PostController@search');
 Route::get('/home', 'PostController@index');

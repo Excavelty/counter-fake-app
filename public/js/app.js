@@ -1693,9 +1693,111 @@ module.exports = {
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/addPostForm.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\website\\resources\\js\\components\\addPostForm.vue: Unexpected token, expected \",\" (89:38)\n\n\u001b[0m \u001b[90m 87 | \u001b[39m  updated\u001b[33m:\u001b[39m \u001b[36mfunction\u001b[39m()\u001b[0m\n\u001b[0m \u001b[90m 88 | \u001b[39m  {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 89 | \u001b[39m      axios\u001b[33m.\u001b[39mget(\u001b[32m'/search-posts'\u001b[39m\u001b[33m,\u001b[39m props{\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 90 | \u001b[39m        title\u001b[33m:\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtitle\u001b[0m\n\u001b[0m \u001b[90m 91 | \u001b[39m      })\u001b[0m\n\u001b[0m \u001b[90m 92 | \u001b[39m  }\u001b[33m,\u001b[39m\u001b[0m\n    at Parser.raise (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:6325:17)\n    at Parser.unexpected (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:7642:16)\n    at Parser.expect (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:7628:28)\n    at Parser.parseCallExpressionArguments (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8606:14)\n    at Parser.parseSubscript (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8514:29)\n    at Parser.parseSubscripts (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8433:19)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8422:17)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8392:21)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8267:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8240:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8187:21)\n    at Parser.parseExpression (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8135:23)\n    at Parser.parseStatementContent (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9958:23)\n    at Parser.parseStatement (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9829:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:10405:25)\n    at Parser.parseBlockBody (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:10392:10)\n    at Parser.parseBlock (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:10376:10)\n    at Parser.parseFunctionBody (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9424:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9394:10)\n    at withTopicForbiddingContext (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:10535:12)\n    at Parser.withTopicForbiddingContext (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9702:14)\n    at Parser.parseFunction (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:10534:10)\n    at Parser.parseFunctionExpression (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8877:17)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8790:21)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8412:23)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8392:21)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8267:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8240:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8187:21)\n    at Parser.parseObjectProperty (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9281:101)\n    at Parser.parseObjPropValue (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9306:101)\n    at Parser.parseObjectMember (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9230:10)\n    at Parser.parseObj (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9154:25)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8784:28)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8412:23)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8392:21)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      title: '',
+      content: '',
+      type: '',
+      success: null,
+      errorsList: null,
+      error: null,
+      similiarList: []
+    };
+  },
+  methods: {
+    runSubmit: function runSubmit(e) {
+      var _this = this;
+
+      e.preventDefault();
+      this.success = null;
+      this.errorsList = null;
+      this.error = null;
+      axios.post('/add-post', {
+        title: this.title,
+        content: this.content,
+        type: this.type
+      }).then(function (response) {
+        return response.data.success ? _this.success = response.data.success : _this.error = response.data.error;
+      })["catch"](function (error) {
+        return _this.errorsList = error.response.data.errors;
+      });
+    },
+    changeValue: function changeValue(e) {
+      var handle = document.querySelector(".collapseButton");
+      if (handle.textContent === 'Dodaj ostrzeżenie') handle.textContent = 'Zwiń formularz';else handle.textContent = 'Dodaj ostrzeżenie';
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    var titleHandle = document.getElementById("title");
+    titleHandle.addEventListener('keyup', function () {
+      return axios.get('/search-posts', {
+        params: {
+          title: _this2.title
+        }
+      }).then(function (response) {
+        return _this2.similiarList = response.data.posts;
+      });
+    });
+  }
+});
 
 /***/ }),
 
@@ -37748,6 +37850,13 @@ var render = function() {
                     }
                     _vm.title = $event.target.value
                   }
+                },
+                nativeOn: {
+                  keyup: function($event) {
+                    return (function(getSimiliarTitles) {
+                      return _vm.e
+                    })($event)
+                  }
                 }
               })
             ]),
@@ -37824,8 +37933,34 @@ var render = function() {
             _vm._v(" "),
             _c("input", {
               staticClass: "btn btn-primary",
-              attrs: { type: "submit", value: "Add" }
-            })
+              attrs: { type: "submit", value: "Dodaj" }
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _vm._v(
+                  "\n      Sprawdź czy nie istnieją już podobne tematy:\n      "
+                ),
+                _vm._l(_vm.similiarList, function(similiar) {
+                  return _c("ul", [
+                    _c("li", [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: "/show-post/" + similiar.id,
+                            target: "_blank"
+                          }
+                        },
+                        [_vm._v(_vm._s(similiar.title))]
+                      )
+                    ])
+                  ])
+                })
+              ],
+              2
+            )
           ]
         )
       ])
@@ -50102,14 +50237,15 @@ if (token) {
 /*!*************************************************!*\
   !*** ./resources/js/components/addPostForm.vue ***!
   \*************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _addPostForm_vue_vue_type_template_id_ca7ee46c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addPostForm.vue?vue&type=template&id=ca7ee46c& */ "./resources/js/components/addPostForm.vue?vue&type=template&id=ca7ee46c&");
 /* harmony import */ var _addPostForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addPostForm.vue?vue&type=script&lang=js& */ "./resources/js/components/addPostForm.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _addPostForm_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addPostForm.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/addPostForm.vue?vue&type=style&index=0&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _addPostForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _addPostForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _addPostForm_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addPostForm.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/addPostForm.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -50141,7 +50277,7 @@ component.options.__file = "resources/js/components/addPostForm.vue"
 /*!**************************************************************************!*\
   !*** ./resources/js/components/addPostForm.vue?vue&type=script&lang=js& ***!
   \**************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
