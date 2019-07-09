@@ -12,8 +12,9 @@ class Post extends Model
 
     public static function getLatest($howMany, $perPage)
     {
-        $posts = Post::orderBy('created_at', 'desc')->paginate($perPage)->get($howMany);
-        return response()->json( [$posts] );
+        $posts = Post::orderBy('created_at', 'desc')->take($howMany)->paginate($perPage)
+          ->onEachSide(1);
+        return $posts;
     }
 
     public static function storePost(Request $request)
@@ -27,6 +28,6 @@ class Post extends Model
 
     private function validatePost(Request $request)
     {
-        
+
     }
 }

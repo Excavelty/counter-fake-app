@@ -1693,74 +1693,9 @@ module.exports = {
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/addPostForm.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      title: '',
-      content: '',
-      type: '',
-      success: null,
-      errorsList: null,
-      error: null
-    };
-  },
-  methods: {
-    runSubmit: function runSubmit(e) {
-      var _this = this;
-
-      e.preventDefault();
-      axios.post('/add-post', {
-        title: this.title,
-        content: this.content,
-        type: this.type
-      }).then(function (response) {
-        return response.data.success ? _this.success = response.data.success : _this.error = response.data.error;
-      })["catch"](function (error) {
-        return _this.errorsList = error.response.data.errors;
-      });
-    },
-    closeMessage: function closeMessage(e) {
-      document.querySelector(".closeButton").parentNode.remove();
-    }
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\website\\resources\\js\\components\\addPostForm.vue: Unexpected token, expected \",\" (89:38)\n\n\u001b[0m \u001b[90m 87 | \u001b[39m  updated\u001b[33m:\u001b[39m \u001b[36mfunction\u001b[39m()\u001b[0m\n\u001b[0m \u001b[90m 88 | \u001b[39m  {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 89 | \u001b[39m      axios\u001b[33m.\u001b[39mget(\u001b[32m'/search-posts'\u001b[39m\u001b[33m,\u001b[39m props{\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 90 | \u001b[39m        title\u001b[33m:\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtitle\u001b[0m\n\u001b[0m \u001b[90m 91 | \u001b[39m      })\u001b[0m\n\u001b[0m \u001b[90m 92 | \u001b[39m  }\u001b[33m,\u001b[39m\u001b[0m\n    at Parser.raise (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:6325:17)\n    at Parser.unexpected (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:7642:16)\n    at Parser.expect (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:7628:28)\n    at Parser.parseCallExpressionArguments (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8606:14)\n    at Parser.parseSubscript (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8514:29)\n    at Parser.parseSubscripts (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8433:19)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8422:17)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8392:21)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8267:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8240:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8187:21)\n    at Parser.parseExpression (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8135:23)\n    at Parser.parseStatementContent (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9958:23)\n    at Parser.parseStatement (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9829:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:10405:25)\n    at Parser.parseBlockBody (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:10392:10)\n    at Parser.parseBlock (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:10376:10)\n    at Parser.parseFunctionBody (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9424:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9394:10)\n    at withTopicForbiddingContext (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:10535:12)\n    at Parser.withTopicForbiddingContext (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9702:14)\n    at Parser.parseFunction (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:10534:10)\n    at Parser.parseFunctionExpression (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8877:17)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8790:21)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8412:23)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8392:21)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8267:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8240:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8187:21)\n    at Parser.parseObjectProperty (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9281:101)\n    at Parser.parseObjPropValue (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9306:101)\n    at Parser.parseObjectMember (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9230:10)\n    at Parser.parseObj (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:9154:25)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8784:28)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8412:23)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\website\\node_modules\\@babel\\parser\\lib\\index.js:8392:21)");
 
 /***/ }),
 
@@ -6240,7 +6175,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/* always present */\n.expand-transition {\r\n  -webkit-transition: all 3s ease;\r\n  transition: all 3s ease;\r\n  height: 30px;\r\n  padding: 10px;\r\n  background-color: #eee;\r\n  overflow: hidden;\n}\r\n/* .expand-enter defines the starting state for entering */\r\n/* .expand-leave defines the ending state for leaving */\n.expand-enter, .expand-leave {\r\n  height: 0;\r\n  padding: 0 10px;\r\n  opacity: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n  -webkit-transition: opacity 1s;\r\n  transition: opacity 1s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\r\n  opacity: 0;\n}\n.alert, .closeButton {\r\n  font-size: 20px;\n}\n.closeButton{\r\n  float: right;\r\n  padding: 2px;\n}\r\n", ""]);
 
 // exports
 
@@ -37717,148 +37652,186 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "form",
-      { attrs: { method: "post" }, on: { submit: _vm.runSubmit } },
-      [
-        _vm.success
-          ? _c(
-              "div",
+  return _c(
+    "div",
+    [
+      _vm.success
+        ? _c("div", { staticClass: "alert alert-success" }, [
+            _vm._v(
+              "\n                " +
+                _vm._s(_vm.success) +
+                "\n                  "
+            ),
+            _c(
+              "button",
               {
-                staticClass: "alert alert-success",
-                attrs: { transtion: "expand" }
+                staticClass: "btn btn-primary closeButton",
+                on: { click: _vm.closeMessage }
               },
-              [
-                _vm._v(
-                  "\n            " + _vm._s(_vm.success) + "\n            "
-                ),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary closeButton",
-                    on: { click: _vm.closeMessage }
-                  },
-                  [_vm._v("Zamknij")]
-                )
-              ]
+              [_vm._v("Zamknij")]
             )
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.error
-          ? _c("div", { staticClass: "alert alert-danger" }, [
-              _vm._v("\n        " + _vm._s(_vm.error) + "\n    ")
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm._l(_vm.errorsList, function(errs) {
-          return _vm.errorsList
-            ? _c("div", { staticClass: "alert alert-danger" }, [
-                _vm._v("\n        " + _vm._s(errs[0]) + "\n    ")
-              ])
-            : _vm._e()
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.error
+        ? _c("div", { staticClass: "alert alert-danger" }, [
+            _vm._v(
+              "\n                " + _vm._s(_vm.error) + "\n                "
+            ),
+            _c(
+              "button",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.title,
-                expression: "title"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { id: "title", name: "title", type: "text" },
-            domProps: { value: _vm.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.title = $event.target.value
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "content" } }, [_vm._v("Description")]),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.content,
-                expression: "content"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { id: "content", rows: "10", name: "content" },
-            domProps: { value: _vm.content },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.content = $event.target.value
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "type" } }, [_vm._v("Type")]),
-          _vm._v(" "),
+                staticClass: "btn btn-primary closeButton",
+                on: { click: _vm.closeMessage }
+              },
+              [_vm._v("Zamknij")]
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.errorsList, function(errs) {
+        return _c("div", { staticClass: "alert alert-danger" }, [
+          _vm._v(
+            "\n                  " + _vm._s(errs[0]) + "\n                  "
+          ),
           _c(
-            "select",
+            "button",
             {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.type,
-                  expression: "type"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { id: "type", name: "type" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.type = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
+              staticClass: "btn btn-primary closeButton",
+              on: { click: _vm.closeMessage }
             },
-            [
-              _c("option", { attrs: { value: "1" } }, [_vm._v("First option")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "2" } }, [_vm._v("Second option")])
-            ]
+            [_vm._v("Zamknij")]
           )
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "btn btn-primary",
-          attrs: { type: "submit", value: "Add" }
-        })
-      ],
-      2
-    )
-  ])
+        ])
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary collapseButton",
+          attrs: {
+            type: "button",
+            "data-toggle": "collapse",
+            "data-target": "#collapseForm",
+            "aria-expanded": "false",
+            "aria-controls": "collapseForm"
+          },
+          on: { click: _vm.changeValue }
+        },
+        [_vm._v("Dodaj ostrzeżenie")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "collapse", attrs: { id: "collapseForm" } }, [
+        _c(
+          "form",
+          { attrs: { method: "post" }, on: { submit: _vm.runSubmit } },
+          [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "title" } }, [_vm._v("Tytuł")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.title,
+                    expression: "title"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { id: "title", name: "title", type: "text" },
+                domProps: { value: _vm.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.title = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "content" } }, [_vm._v("Opis")]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.content,
+                    expression: "content"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { id: "content", rows: "10", name: "content" },
+                domProps: { value: _vm.content },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.content = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "type" } }, [_vm._v("Typ")]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.type,
+                      expression: "type"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "type", name: "type" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.type = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "1" } }, [
+                    _vm._v("First option")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "2" } }, [
+                    _vm._v("Second option")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "btn btn-primary",
+              attrs: { type: "submit", value: "Add" }
+            })
+          ]
+        )
+      ])
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

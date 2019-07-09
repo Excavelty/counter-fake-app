@@ -30,4 +30,4 @@ Vue.component('add-post-form', require('./components/addPostForm.vue').default);
 
 const addPostForm = new Vue({
   el: '#addPostForm'
-})
+});
