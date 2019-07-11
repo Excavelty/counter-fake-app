@@ -22,4 +22,8 @@ Auth::routes();
 
 Route::post('/add-post', 'PostController@store');
 Route::get('/search-posts', 'PostController@search');
+Route::get('/show/{id}', 'PostController@i');
 Route::get('/home', 'PostController@index');
+Route::get('/update/{id}', 'PostController@update');
+Route::put('/put-post/{id}', 'PostController@put');
+Route::get('/get-post-votes', 'PostController@getVotes');

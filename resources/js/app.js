@@ -20,6 +20,8 @@ window.Vue = require('vue');
 
 Vue.component('test', require('./components/test.vue').default);
 Vue.component('add-post-form', require('./components/addPostForm.vue').default);
+Vue.component('get-votes', require('./components/voteComponent.vue').default);
+Vue.component('update-post', require('./components/updatePostForm.vue').default);
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
@@ -30,4 +32,12 @@ Vue.component('add-post-form', require('./components/addPostForm.vue').default);
 
 const addPostForm = new Vue({
   el: '#addPostForm'
+});
+
+const getVotes = new Vue({
+  el: '#getVotes'
+});
+
+const updatePost = new Vue({
+  el: '#updatePost'
 });

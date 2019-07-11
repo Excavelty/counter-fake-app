@@ -16,8 +16,9 @@
                 </div>
 
         <button class="btn btn-primary collapseButton" v-on:click="changeValue" type="button" data-toggle="collapse" data-target="#collapseForm" aria-expanded="false" aria-controls="collapseForm">Dodaj ostrzeżenie</button>
+        </br></br>
         <div class="collapse" id="collapseForm">
-        <form @submit="runSubmit" method="post">
+        <form @submit="runSubmit" method="post" class="formBox">
         <div class="form-group">
             <label for="title">Tytuł</label>
             <input id="title" name="title" @keyup.native="getSimiliarTitles => e" v-model="title" class="form-control" type="text"/>
@@ -37,14 +38,13 @@
           </div>
 
           <input type="submit" class="btn btn-primary" value="Dodaj">
-
+          </form>
           <div>
-          Sprawdź czy nie istnieją już podobne tematy:
-          <ul v-for="similiar in similiarList">
-              <li><a :href="'/show-post/' + similiar.id" target="_blank">{{similiar.title}}</a></li>
-          </ul>
+          <h4>Sprawdź, czy nie istnieją już podobne tematy:</h4>
+          <div v-for="similiar in similiarList" class="list-group">
+              <a :href="'/show-post/' + similiar.id" target="_blank" class="list-group-item list-group-item-warning">{{similiar.title}}</a>
           </div>
-        </form>
+          </div>
     </div>
     </div>
 </template>
@@ -85,6 +85,10 @@
             else
                 handle.textContent = 'Dodaj ostrzeżenie';
         },
+
+        closeMessage(e) {
+            document.querySelector('.closeButton').parentNode.remove();
+        },
       },
 
       mounted: function() {
@@ -97,7 +101,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
 .fade-enter-active, .fade-leave-active {
   transition: opacity 1s;
 }
@@ -111,4 +115,15 @@
   float: right;
   padding: 2px;
 }
+
+.formBox {
+    background-color: #3B4F51;
+    color: white;
+    padding: 4vh;
+}
+
+.list-group > a {
+    text-decoration: none;
+}
+
 </style>

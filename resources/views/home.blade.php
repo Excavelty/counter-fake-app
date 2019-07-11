@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('styles')
+<link href="{{asset('css/fontello-753e3726/css/fontello.css')}}" rel="stylesheet" />
+@endsection
+
 @section('content')
 <div class="container">
     <div class="">
@@ -10,30 +14,35 @@
         </br>
         @if($posts)
         <div>
+          {{$posts->links()}}
+          <div id="getVotes">
           @foreach($posts as $post)
               <div class="card">
                   <div class="card-header">
-                      {{$post->title}}
+                      <h3>{{$post->title}}</h3>
                   </div>
                   <div class="card-body">
-                      {{$post->content}}
+                      {{str_limit($post->content, 500, $end = '...')}}
+                      <a href="/show/{{$post->id}}" target="_blank">Zobacz więcej</a>
+                          <get-votes :post-id="{{$post->id}}">
+                          </get-votes>
                   </div>
                   <div class="card-footer">
                       {{$post->created_at}}
                       {{$post->updated_at}}
+                      @if(Auth::user()->id === $post->authorId)
+                          <a href="/update/{{$post->id}}" target="_blank"><button class="btn btn-warning">Edytuj</button></a>
+                      @endif
                   </div>
               </div>
               </br>
               </br>
           @endforeach
-
-          {{$posts->links()}}
+        </div>
         </div>
         @else
 
         @endif
     </div>
 </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="{{ mix('js/app.js') }}"></script>
 @endsection

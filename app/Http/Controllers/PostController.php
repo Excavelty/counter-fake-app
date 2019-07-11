@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Input;
 
 class PostController extends Controller
 {
+      public function show($id)
+      {
+          $post = Post::findOrFail($id);
+          return view('show')->with('post', $post);
+      }
       public function index()
       {
           $howMany = 100;
@@ -33,11 +38,51 @@ class PostController extends Controller
               $query->orWhere('title', 'like', '%'. $word .'%');
           }
 
-          $posts = $query->take(5)->get();
+          $posts = $query->take(8)->get();
           return ['posts' => $posts];
       }
 
+      public function update($id)
+      {
+          $post = Post::find($id);
+          if($post)
+              return view('update')->with('post', $post);
+          else
+              abort(404);
+      }
+
+      public function put($id, Request $request)
+      {
+          $this->validateRequest($request);
+          $post = Post::find($id);//think of it wheter its enough or not
+          $post->update($request->all());
+
+          if($post && $post->save())
+              return ['success' => 'Poprawnie edytowano ostrzeżenie'];
+          else
+              return ['error' => 'Wystąpił błąd'];
+
+      }
+
       public function store(Request $request)
+      {
+          $this->validateRequest($request);
+
+          $result = Post::storePost($request);
+          if($result)
+              return ['success' => 'Poprawnie dodano nowe ostrzeżenie'];
+          else
+              return ['error' => 'Wystąpił błąd'];
+      }
+
+      public function getVotes()
+      {
+          $id = Input::get('postId');
+          $post = Post::find($id);
+          return ['upvotes' => $post->upvotes, 'downvotes' => $post->downvotes];
+      }
+
+      private function validateRequest(Request $request)
       {
           $rules = [
                 'title' => 'min:14|max:120',
@@ -54,11 +99,5 @@ class PostController extends Controller
           ];
 
           $this->validate($request, $rules, $messages);
-
-          $result = Post::storePost($request);
-          if($result)
-              return ['success' => 'Poprawnie dodano nowe ostrzeżenie'];
-          else
-              return ['error' => 'Wystąpił błąd'];
       }
 }
