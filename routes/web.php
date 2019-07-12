@@ -28,3 +28,5 @@ Route::get('/update/{id}', 'PostController@update');
 Route::put('/put-post/{id}', 'PostController@put');
 Route::get('/get-post-votes', 'PostController@getVotes');
 Route::get('/get-comments/{id}', 'CommentController@index');
+
+Route::post('/add-comment/{postId}', 'CommentController@store');

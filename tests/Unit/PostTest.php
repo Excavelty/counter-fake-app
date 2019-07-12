@@ -17,8 +17,8 @@ class PostTest extends TestCase
      */
     public function testIfStoreMethodReturnsSuccessMessageAsValidJsonGivenValidData()
     {
-        $faker = Faker::create('App\Post');
-        $response = $this->testPrepareForStoreMethod($faker->sentence, $faker->text,
+        $faker = Faker::create('App\Post');//maybe do smth with this to be sure that it passes test
+        $response = $this->prepareTestForStoreMethod($faker->sentence, $faker->text,
         $faker->numberBetween(1, 6));
         $response->assertStatus(200)->assertJson([
             'success' => 'Poprawnie dodano nowe ostrzeżenie',
@@ -28,7 +28,7 @@ class PostTest extends TestCase
     public function testIfStoreMethodReturnsCorrectStatusGivenTooShortTitle()
     {
         $faker = Faker::create('App\Post');//think of sharing that instance
-        $response = $this->testPrepareForStoreMethod('asd',
+        $response = $this->prepareTestForStoreMethod('asd',
           $faker->text, $faker->numberBetween(1, 6));
         $response->assertStatus(422);
     }
@@ -37,7 +37,7 @@ class PostTest extends TestCase
     {
         $faker = Faker::create('App\Post');
         $title = str_repeat('?', 300);
-        $response = $this->testPrepareForStoreMethod($faker->lexify($title),
+        $response = $this->prepareTestForStoreMethod($faker->lexify($title),
           $faker->text, $faker->numberBetween(1, 6));
         $response->assertStatus(422);
     }
@@ -45,7 +45,7 @@ class PostTest extends TestCase
     public function testIfStoreMethodReturnsCorrectStatusGivenTooShortContent()
     {
         $faker = Faker::create('App\Post');
-        $response = $this->testPrepareForStoreMethod($faker->sentence, $faker->text(13), $faker->numberBetween(1, 6));
+        $response = $this->prepareTestForStoreMethod($faker->sentence, $faker->text(13), $faker->numberBetween(1, 6));
         $response->assertStatus(422);
     }
 
@@ -53,18 +53,18 @@ class PostTest extends TestCase
     {
         $faker = Faker::create('App\Post');
         $content = str_repeat('?', 1751);
-        $response = $this->testPrepareForStoreMethod($faker->sentence, $faker->lexify($content), $faker->numberBetween(1,6));
+        $response = $this->prepareTestForStoreMethod($faker->sentence, $faker->lexify($content), $faker->numberBetween(1,6));
         $response->assertStatus(422);
     }
 
     public function testIfStoreMethodReturnsCorrectStatusGivenNoType()
     {
         $faker = Faker::create('App\Post');
-        $response = $this->testPrepareForStoreMethod($faker->sentence, $faker->text, null);
+        $response = $this->prepareTestForStoreMethod($faker->sentence, $faker->text, null);
         $response->assertStatus(422);
     }
 
-    private function testPrepareForStoreMethod($title, $content, $type)
+    private function prepareTestForStoreMethod($title, $content, $type)
     {
         $user = factory(User::class)->create();
 

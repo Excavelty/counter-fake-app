@@ -1836,11 +1836,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       comments: [],
-      commentError: ''
+      commentError: '',
+      content: '',
+      success: '',
+      errorsList: [],
+      error: ''
     };
   },
   props: {
@@ -1857,10 +1884,28 @@ __webpack_require__.r(__webpack_exports__);
         if (response.data.comments) _this.comments = response.data.comments;else _this.commentError = response.data.error;
       })["catch"](function (error) {
         return console.log(error);
-      }); //this.removeShowButton();
+      });
     },
     removeShowButton: function removeShowButton() {
       document.querySelector('.showButton').remove();
+    },
+    runSubmit: function runSubmit(e) {
+      var _this2 = this;
+
+      //think of csrf protection
+      e.preventDefault();
+      this.success = this.error = '';
+      this.errorsList = [];
+      axios.post('/add-comment/' + this.postId, {
+        content: this.content
+      }).then(function (response) {
+        response.data.success ? _this2.success = response.data.success : _this2.error = response.data.error;
+
+        _this2.getComments(); //maybe optimize it somehow
+
+      })["catch"](function (error) {
+        return _this2.errorsList = error.response.data.errors;
+      });
     }
   }
 });
@@ -6486,7 +6531,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.commentHeader[data-v-e8971ba4], .commentFooter[data-v-e8971ba4] {\n    background-color: #59C6D1;\n}\n.card[data-v-e8971ba4] {\n    margin-bottom: 2vh;\n}\n", ""]);
+exports.push([module.i, "\n.commentHeader[data-v-e8971ba4], .commentFooter[data-v-e8971ba4] {\n    background-color: #59C6D1;\n}\n.card[data-v-e8971ba4] {\n    margin-bottom: 2vh;\n}\n.formBox[data-v-e8971ba4] {\n    background-color: #3B4F51;\n    color: white;\n    padding: 4vh;\n}\n", ""]);
 
 // exports
 
@@ -38286,6 +38331,92 @@ var render = function() {
   return _c(
     "div",
     [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary",
+          attrs: {
+            "data-toggle": "collapse",
+            "data-target": "#collapseForm",
+            "aria-expanded": "false",
+            "aria-controls": "collapseExample"
+          }
+        },
+        [_vm._v("Dodaj komentarz")]
+      ),
+      _vm._v(" "),
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "collapse", attrs: { id: "collapseForm" } }, [
+        _c(
+          "form",
+          {
+            staticClass: "formBox",
+            attrs: { method: "post" },
+            on: { submit: _vm.runSubmit }
+          },
+          [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "content" } }, [
+                _vm._v("Treść komentarza:")
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.content,
+                    expression: "content"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { id: "content", rows: "10", name: "content" },
+                domProps: { value: _vm.content },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.content = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "btn btn-primary",
+              attrs: { type: "submit", value: "Dodaj" }
+            })
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _vm.success
+        ? _c("div", { staticClass: "alert alert-success" }, [
+            _vm._v("\n            " + _vm._s(_vm.success) + "\n        ")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.error
+        ? _c("div", { staticClass: "alert alert-danger" }, [
+            _vm._v("\n            " + _vm._s(_vm.error) + "\n        ")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.errorsList, function(errs) {
+        return _c("div", { staticClass: "alert-danger" }, [
+          _vm._v("\n            " + _vm._s(errs[0]) + "\n        ")
+        ])
+      }),
+      _vm._v(" "),
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
       _c(
         "button",
         {
