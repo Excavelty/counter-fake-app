@@ -75,7 +75,7 @@
                 content: this.content,
                 type: this.type,
             }).then(response => response.data.success? this.success = response.data.success :
-            this.error = response.data.error).catch(error => this.errorsList = error.response.data.errors);
+            this.error = response.data.error).catch(error => {this.errorsList = error.response.data.errors; console.log(this.errorsList)});
         },
 
         changeValue(e) {

@@ -1,5 +1,6 @@
 .card-header {
   background-color: #234D51;
+  text-align: center;
   color: white;
 }
 
@@ -10,6 +11,7 @@
 .card-footer {
   background-color: #234D51;
   color: white;
+  text-align: center;
 }
 
 .btn-warning, .btn-primary {

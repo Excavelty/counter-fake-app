@@ -23,7 +23,7 @@
                   </div>
                   <div class="card-body">
                       {{str_limit($post->content, 500, $end = '...')}}
-                      <a href="/show/{{$post->id}}" target="_blank">Zobacz więcej</a>
+                      <a href="/show-post/{{$post->id}}" target="_blank">Zobacz więcej</a>
                           <get-votes :post-id="{{$post->id}}">
                           </get-votes>
                   </div>

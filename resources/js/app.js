@@ -22,6 +22,7 @@ Vue.component('test', require('./components/test.vue').default);
 Vue.component('add-post-form', require('./components/addPostForm.vue').default);
 Vue.component('get-votes', require('./components/voteComponent.vue').default);
 Vue.component('update-post', require('./components/updatePostForm.vue').default);
+Vue.component('show-comments', require('./components/commentsComponent.vue').default);
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
@@ -41,3 +42,7 @@ const getVotes = new Vue({
 const updatePost = new Vue({
   el: '#updatePost'
 });
+
+const showComments = new Vue({
+  el: "#showComments"
+})

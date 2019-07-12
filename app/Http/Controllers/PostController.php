@@ -11,8 +11,11 @@ class PostController extends Controller
 {
       public function show($id)
       {
-          $post = Post::findOrFail($id);
-          return view('show')->with('post', $post);
+          $post = Post::find($id);
+          if($post)
+              return view('show')->with('post', $post);
+          else
+              abort('404');
       }
       public function index()
       {
@@ -86,15 +89,15 @@ class PostController extends Controller
       {
           $rules = [
                 'title' => 'min:14|max:120',
-                'description' => 'min:14|max:1750',
+                'content' => 'min:14|max:1750',
                 'type' => 'required',
           ];
 
           $messages = [
               'title.min' => 'Tytuł powinien składać się z co najmniej :min znaków',
-              'description.min' => 'Opis powinien składać się z co najmniej :min znaków',
+              'content.min' => 'Opis powinien składać się z co najmniej :min znaków',
               'title.max' => 'Tytuł powinien składać się z co najwyżej :max znaków',
-              'description.max' => 'Opis powinien składać się z co najwyżej :max znaków',
+              'content.max' => 'Opis powinien składać się z co najwyżej :max znaków',
               'type.required' => 'Należy wybrać typ',
           ];
 
