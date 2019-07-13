@@ -10,8 +10,11 @@ class MediaController extends Controller
 {
     public function index()
     {
-        $howMuch = Input::get('howMuch');
-        $media = Media::orderBy('result')->take($howMuch)->get();
+        $howMany = Input::get('howMany');
+        if($howMany === 'all')
+            $media = Media::orderBy('result', 'desc')->get();
+        else
+            $media = Media::orderBy('result', 'desc')->take($howMany)->get();
 
         if($media->count())
             return ['media' => $media];
