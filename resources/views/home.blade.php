@@ -7,9 +7,11 @@
 @section('content')
 <div class="container">
     <div class="">
+        @auth
         <div id="addPostForm">
             <add-post-form></add-post-form>
         </div>
+        @endauth
         </br>
         </br>
         @if($posts)
@@ -30,9 +32,11 @@
                   <div class="card-footer">
                       {{$post->created_at}}
                       {{$post->updated_at}}
-                      @if(Auth::user()->id === $post->authorId)
-                          <a href="/update/{{$post->id}}" target="_blank"><button class="btn btn-warning">Edytuj</button></a>
-                      @endif
+                      @auth
+                          @if(Auth::user()->id === $post->authorId)
+                              <a href="/update/{{$post->id}}" target="_blank"><button class="btn btn-warning">Edytuj</button></a>
+                          @endif
+                      @endauth
                   </div>
               </div>
               </br>

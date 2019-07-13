@@ -48,8 +48,10 @@ class PostController extends Controller
       public function update($id)
       {
           $post = Post::find($id);
-          if($post)
+          if($post && $post->authorId == Auth::user()->id)
               return view('update')->with('post', $post);
+          else if($post && $post->id != Auth::user()->id)
+              return redirect('/home');
           else
               abort(404);
       }

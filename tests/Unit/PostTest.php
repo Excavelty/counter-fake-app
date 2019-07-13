@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Faker\Factory as Faker;
 use App\User;
+use App\Post;
 
 class PostTest extends TestCase
 {
@@ -15,6 +16,7 @@ class PostTest extends TestCase
      *
      * @return void
      */
+
     public function testIfStoreMethodReturnsSuccessMessageAsValidJsonGivenValidData()
     {
         $faker = Faker::create('App\Post');//maybe do smth with this to be sure that it passes test
@@ -64,6 +66,59 @@ class PostTest extends TestCase
         $response->assertStatus(422);
     }
 
+    public function testIfOnlyLoggedUsersCanAddPost()
+    {
+        $faker = Faker::create('App\Post');
+        $response = $this->json('POST', '/add-post',
+        [
+            'title' => $faker->lexify(str_repeat('?', 24)),
+            'content' => $faker->lexify(str_repeat('?', 200)),
+            'type' => $faker->numberBetween(1, 10),
+        ]);
+
+        $response->assertStatus(401);//unauthorized;
+    }
+
+    public function testIfOnlyAuthorCanUpdatePost()
+    {
+        $faker = Faker::create('App\Post');//optimize it somehow maybe
+        $object = $this->prepareCorrectObjectForStoreAndPut($faker);
+        $user = User::where('id', '<', 10)->first();
+        $postId = Post::where('authorId', "!=", $user->id)->first()->id;
+        $response = $this->actingAs($user)->json('PUT', '/put-post' . '/' . $postId, $object);
+        $response->assertStatus(302)->assertRedirect('/home');
+    }
+
+    public function testIfOnlyLoggedUsersCanUseUpdatePost()
+    {
+        $faker = Faker::create('App\Post');
+        $number = $faker->numberBetween(1, 80);
+        $response = $this->get('/update' . '/' .$number)->assertRedirect('/login')
+          ->assertStatus(302);
+    }
+
+    public function testIfOnlyLoggedUserCanUpdatePost()
+    {
+        $faker = Faker::create('App\Post');
+        $number = $faker->numberBetween(1, 80);
+        $object = $this->prepareCorrectObjectForStoreAndPut($faker);
+        $response = $this->json('PUT', '/put-post' . '/' . $number, $object);
+
+        $response->assertStatus(401);
+    }
+
+    public function testIfPutMethodReturnsSuccessMessageAsValidJsonGivenValidData()
+    {
+          $faker = Faker::create('App\Post');
+          $user = factory(User::class)->create();
+          $number = $faker->numberBetween(1, 80);
+          $object = $this->prepareCorrectObjectForStoreAndPut($faker);
+          $response = $this->actingAs($user)->json('PUT', '/put-post' . '/' . $number, $object);
+          $response->assertStatus(200)->assertJson([
+              'success' => 'Poprawnie edytowano ostrzeżenie',
+          ]);
+    }
+
     private function prepareTestForStoreMethod($title, $content, $type)
     {
         $user = factory(User::class)->create();
@@ -77,4 +132,14 @@ class PostTest extends TestCase
 
         return $response;
     }
+
+    private function prepareCorrectObjectForStoreAndPut($faker)
+    {
+        return [
+            'title' => $faker->lexify(str_repeat('?', 24)),
+            'content' => $faker->lexify(str_repeat('?', 200)),
+            'type' => $faker->numberBetween(1, 10),
+        ];
+    }
+
 }

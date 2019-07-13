@@ -23,6 +23,7 @@ Vue.component('add-post-form', require('./components/addPostForm.vue').default);
 Vue.component('get-votes', require('./components/voteComponent.vue').default);
 Vue.component('update-post', require('./components/updatePostForm.vue').default);
 Vue.component('show-comments', require('./components/commentsComponent.vue').default);
+Vue.component('get-media', require('./components/getMediaComponent.vue').default);
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
@@ -45,4 +46,8 @@ const updatePost = new Vue({
 
 const showComments = new Vue({
   el: "#showComments"
-})
+});
+
+const getMedia = new Vue({
+  el: '#getMedia',
+});

@@ -21,12 +21,30 @@ class CommentTest extends TestCase
     {
           $faker = Faker::create('App\Comment');
           $content = str_repeat('?', 120);
-          $response = $this->prepareTestForStoreMethod($faker->lexify($content),
-            $faker->numberBetween(1, 100));
+          $response = $this->prepareTestForStoreMethod($faker->numberBetween(1, 80),
+            $faker->lexify($content));
 
           $response->assertStatus(200)->assertJson([
               'success' => 'Poprawnie dodano komentarz',
           ]);
+    }
+
+    public function testIfStoreMethodReturnsCorrectStatusGivenTooShortContent()
+    {
+        $faker = Faker::create('App\Comment');
+        $response = $this->prepareTestForStoreMethod($faker->numberBetween(1, 80), $faker->text(13));
+
+        $response->assertStatus(422);
+    }
+
+    public function testIfStoreMethodReturnsCorrectStatusGivenTooLongContent()
+    {
+        $faker = Faker::create('App\Comment');
+        $content = str_repeat('?', 301);
+        $response = $this->prepareTestForStoreMethod($faker->numberBetween(1, 80),
+          $faker->lexify($content));
+
+        $response->assertStatus(422);
     }
 
     private function prepareTestForStoreMethod($postId, $content)

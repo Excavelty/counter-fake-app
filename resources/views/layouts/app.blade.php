@@ -28,11 +28,26 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/rank">Ranking rzetelności<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/media-rank">Ranking rzetelności<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/about">O stronie</a>
         </li>
+        @auth
+          <li class="nav-item">
+              <form method="POST" action="{{route('logout')}}">@csrf
+              <input type="submit" value="Wyloguj"/>
+              </form>
+          </li>
+        @endauth
+        @guest
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Logowanie</a>
+            </li>
+            <li>
+                <a class="nav-link" href="/register">Rejestracja</a>
+            </li>
+        @endguest
         </ul>
         <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Szukaj" aria-label="Search">

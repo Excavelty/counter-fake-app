@@ -20,13 +20,20 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['middleware' => 'auth'], function() {
+
 Route::post('/add-post', 'PostController@store');
-Route::get('/search-posts', 'PostController@search');
-Route::get('/show-post/{id}', 'PostController@show');
-Route::get('/home', 'PostController@index');
 Route::get('/update/{id}', 'PostController@update');
 Route::put('/put-post/{id}', 'PostController@put');
+Route::post('/add-comment/{postId}', 'CommentController@store');
+
+});
+Route::get('/search-posts', 'PostController@search');
+Route::get('/show-post/{id}', 'PostController@show');
+Route::get('/', function() {return redirect('/home');});
+Route::get('/home', 'PostController@index');
 Route::get('/get-post-votes', 'PostController@getVotes');
 Route::get('/get-comments/{id}', 'CommentController@index');
 
-Route::post('/add-comment/{postId}', 'CommentController@store');
+Route::get('/media-rank', 'MediaController@show');
+Route::get('/get-media-rank', 'MediaController@index');
