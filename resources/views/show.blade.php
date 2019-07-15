@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('styles')
+<link href="{{asset('css/fontello-753e3726/css/fontello.css')}}" rel="stylesheet" />
+@endsection
+
 @section('content')
     <div class="container">
           <div class="card">
@@ -8,6 +12,9 @@
           </div>
           <div class="card-body">
               {{$post->content}}
+              <div id="voteComponent">
+                  <vote-component :post-id = "{{$post->id}}"></vote-component>
+              </div>
           </div>
           <div class="card-footer">
           Utworzono dnia: {{$post->created_at}}, ostatnia edycja: {{$post->updated_at}}

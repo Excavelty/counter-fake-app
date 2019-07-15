@@ -25,7 +25,7 @@
                   </div>
                   <div class="card-body">
                       {{str_limit($post->content, 500, $end = '...')}}
-                      <a href="/show-post/{{$post->id}}" target="_blank">Zobacz więcej</a>
+                      <a href="/show-post/{{$post->id}}">Zobacz więcej</a>
                           <get-votes :post-id="{{$post->id}}">
                           </get-votes>
                   </div>
@@ -34,7 +34,7 @@
                       {{$post->updated_at}}
                       @auth
                           @if(Auth::user()->id === $post->authorId)
-                              <a href="/update/{{$post->id}}" target="_blank"><button class="btn btn-warning">Edytuj</button></a>
+                              <a href="/update/{{$post->id}}"><button class="btn btn-warning">Edytuj</button></a>
                           @endif
                       @endauth
                   </div>

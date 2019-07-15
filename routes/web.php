@@ -26,6 +26,8 @@ Route::post('/add-post', 'PostController@store');
 Route::get('/update/{id}', 'PostController@update');
 Route::put('/put-post/{id}', 'PostController@put');
 Route::post('/add-comment/{postId}', 'CommentController@store');
+Route::post('/upvote-post', 'UpvoteController@add');
+Route::post('/downvote-post', 'DownvoteController@add');
 
 });
 Route::get('/search-posts', 'PostController@search');

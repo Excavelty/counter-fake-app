@@ -55,5 +55,6 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-plus-squared:before { content: '\f0fe'; color: green; font-size: 4vh;} /* '' */
-.icon-minus-squared:before { content: '\f146'; color: red; font-size: 4vh;} /* '' */
+.icon-plus-squared:before { content: '\f0fe'; color: 	#32CD32; font-size: 4vh;} /* '' */
+.icon-minus-squared:before { content: '\f146'; color: #DC143C; font-size: 4vh;} /* '' */
+.icon-plus-squared:hover{color: yellow;}
